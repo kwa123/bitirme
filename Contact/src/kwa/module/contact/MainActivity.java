@@ -2,7 +2,9 @@ package kwa.module.contact;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -19,7 +21,15 @@ public class MainActivity extends Activity {
         name=(EditText)findViewById(R.id.editText1);
         number=(EditText)findViewById(R.id.editText2);
         
-        
+        save.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent=new Intent(MainActivity.this,ViewContact.class);
+				startActivity(intent);
+				
+			}
+		});
     }
 
     @Override
