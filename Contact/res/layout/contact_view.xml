@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+<ListView
+    android:id="@+id/listContact"
+    android:layout_width="match_parent"
+    android:layout_height="375dp"
+    android:layout_x="2dp"
+    android:layout_y="0dp" >
+</ListView>
+
+<Button
+    android:id="@+id/newContact"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:layout_x="-2dp"
+    android:layout_y="394dp"
+    android:text="NEW" />
+
+<Button
+    android:id="@+id/home"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:layout_x="159dp"
+    android:layout_y="395dp"
+    android:text="HOME" />
+
+</AbsoluteLayout>
