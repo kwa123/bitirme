@@ -1,5 +1,7 @@
 package kwa.module.contact;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -8,8 +10,12 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 public class ViewContact extends Activity{
@@ -26,17 +32,20 @@ public class ViewContact extends Activity{
 	       
 	        ListView contactView=(ListView)findViewById(R.id.listContact);
 	        contactView.setClickable(true);
-	        contactView.setOnLongClickListener(new View.OnLongClickListener() {
-				
-				public boolean onLongClick(View v) {
+	        
+	        contactView.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+				public boolean onItemLongClick(AdapterView<?> arg0, View arg1,
+						int arg2, long arg3) {
 					// TODO Auto-generated method stub
-					// v.getId();
-					Log.e("", v.getId()+"");
+					Log.e( "\n"+arg2+""+arg3+""+arg1,"aa");
 					return false;
 				}
-				
-				
+	        	
 			});
+	        
+	        
+	        
 	        newc.setOnClickListener(new View.OnClickListener() {
 				
 				public void onClick(View v) {
@@ -50,6 +59,13 @@ public class ViewContact extends Activity{
 	        
 	    });
 	        
+	        ArrayList<String> arr=new ArrayList<String>();
+	        arr.add("hey");
+	        arr.add("123");
+	        ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
+    			 android.R.layout.simple_list_item_1, arr);
+	        
+	        contactView.setAdapter(aa);
 	   }
 
 
