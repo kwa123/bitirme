@@ -56,7 +56,6 @@ public class ViewContact extends Activity{
 				}
 	        
 	        
-	        
 	    });
 	        
 	        ArrayList<String> arr=new ArrayList<String>();
