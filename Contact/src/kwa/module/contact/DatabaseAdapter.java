@@ -19,6 +19,8 @@ public class DatabaseAdapter {
 	private static String KEY_TEL="surname";
 	public static final int TEL_COLUMN = 2;
 	
+	
+	
 	// SQL Statement to create a new database.
 	private static final String SQL_DATABASE_CREATE = 
 			"create table " + DATABASE_TABLE + 
