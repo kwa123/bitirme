@@ -19,8 +19,9 @@ public class ViewContact extends Activity{
 	        
 	        ListView contactView=(ListView)findViewById(R.id.listContact);
 	        
-	        
 	    }
+	   
+	   
 
 
 }
