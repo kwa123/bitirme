@@ -1,5 +1,7 @@
 package kwa.module.contact;
 
+import java.util.ArrayList;
+
 import android.R.integer;
 import android.app.Activity;
 import android.content.Intent;
@@ -21,16 +23,30 @@ public class Drafts extends Activity {
 	private TextView draft3;
 	private TextView draft4;
 	private TextView draft5;
+	private Button home;
+	private static ArrayList<String> drafts;
 	
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.draft);
+        
+        if(drafts == null)
+        {
+        	drafts = new ArrayList<String>();
+        	drafts.add("Draft1");
+        	drafts.add("Draft2");
+        	drafts.add("Draft3");
+        	drafts.add("Draft4");
+        	drafts.add("Draft5");
+        }
         
         edit1=(Button)findViewById(R.id.button1);
         edit2=(Button)findViewById(R.id.button2);
         edit3=(Button)findViewById(R.id.button3);
         edit4=(Button)findViewById(R.id.button4);
         edit5=(Button)findViewById(R.id.button5);
+        
+        home=(Button)findViewById(R.id.home);
         
         draft1=(TextView)findViewById(R.id.textView1);
         draft2=(TextView)findViewById(R.id.textView2);
@@ -45,34 +61,15 @@ public class Drafts extends Activity {
         	String draftText = intentFirst.getExtras().get("draftText").toString();
         	int draftID = Integer.parseInt(intentFirst.getExtras().get("draftID").toString());
         	
-        	switch (draftID) {
-			case 1:
-				draft1.setText(draftText);	
-				break;
-
-			case 2:
-				draft2.setText(draftText);	
-				break;
-			
-			case 3:
-				draft3.setText(draftText);	
-				break;
-			
-			case 4:
-				draft4.setText(draftText);	
-				break;
-				
-			case 5:
-				draft5.setText(draftText);	
-				break;
-
-			default:
-				break;
-			}
+        	for(int i=0;i<5;++i)
+        	{
+        		if(draftID == i+1)
+        			drafts.set(i, draftText);	
+        	}
         }
         
         
-        
+        setDrafts();
        
         
         edit1.setOnClickListener(new View.OnClickListener() {
@@ -129,11 +126,27 @@ public class Drafts extends Activity {
 			}
 		});
         
-        
+        home.setOnClickListener(new View.OnClickListener() {
+			
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent intent=new Intent(Drafts.this,Welcome.class);
+				startActivity(intent);
+			}
+		});
         
         
     }
 	
+    
+    void setDrafts()
+    {
+    	draft1.setText(drafts.get(0));
+    	draft2.setText(drafts.get(1));
+    	draft3.setText(drafts.get(2));
+    	draft4.setText(drafts.get(3));
+    	draft5.setText(drafts.get(4));
+    }
 	
 }
 

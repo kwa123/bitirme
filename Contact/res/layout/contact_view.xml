@@ -20,11 +20,11 @@
     android:text="NEW" />
 
 <Button
-    android:id="@+id/drafts"
+    android:id="@+id/home"
     android:layout_width="160dp"
     android:layout_height="wrap_content"
     android:layout_x="159dp"
     android:layout_y="395dp"
-    android:text="DRAFTS" />
+    android:text="HOME" />
 
 </AbsoluteLayout>

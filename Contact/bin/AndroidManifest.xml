@@ -14,15 +14,22 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" >
+            
+        </activity>
+        <activity android:name=".Welcome" > 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+           </intent-filter>   
+        </activity>    
+        
+        <activity android:name=".ViewContact" >    
         </activity>
-        <activity android:name=".ViewContact" />
-        <activity android:name=".Drafts" />
-        <activity android:name=".DraftEdit" />
+        <activity android:name=".Drafts" > 
+        </activity>
+        <activity android:name=".DraftEdit" ></activity>
+      
     </application>
     
 
