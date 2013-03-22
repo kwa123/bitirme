@@ -35,4 +35,13 @@ public class Database {
 		int a = 1;
 		return str;
 	}
+	
+	public static void updateContact(Contact contact) {
+		databaseAdapter.updateContact(contact);
+	}
+	
+	public static void deleteContect(Contact contact)
+	{
+		databaseAdapter.deleteContact(contact);
+	}
 }

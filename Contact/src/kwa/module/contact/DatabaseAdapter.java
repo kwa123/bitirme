@@ -13,12 +13,12 @@ import android.util.Log;
 
 public class DatabaseAdapter {
 	private static String DATABASE_NAME = "database.db";
-	private static int DATABASE_VERSION = 3;
+	private static int DATABASE_VERSION = 4;
 	private static String DATABASE_TABLE = "contacts";
 	private static String KEY_ID="id";
 	private static String KEY_NAME="name";
 	public static final int NAME_COLUMN = 1;
-	private static String KEY_TEL="surname";
+	private static String KEY_TEL="tel";
 	public static final int TEL_COLUMN = 2;
 	
 	
@@ -182,5 +182,17 @@ public class DatabaseAdapter {
 			return allContacts;
 		}
 		
+	}
+	
+	public void updateContact (Contact contact)
+	{
+		db.execSQL("UPDATE "+DATABASE_TABLE+" SET "+KEY_TEL+"=\""+contact.getTel()+"\" WHERE "+KEY_NAME+"="+contact.getName());
+		
+	}
+	
+	public void deleteContact (Contact contact) 
+	{
+		String sql = "DELETE FROM "+DATABASE_TABLE+" WHERE name = '" + contact.getName()+"'";
+		db.execSQL(sql);
 	}
 }
