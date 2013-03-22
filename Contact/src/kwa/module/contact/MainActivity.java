@@ -12,6 +12,8 @@ public class MainActivity extends Activity {
 	private Button save;
 	private EditText name;
 	private EditText number;
+	private Contact contact;
+	
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,8 @@ public class MainActivity extends Activity {
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				contact = new Contact(name.getText().toString(), number.getText().toString());
+			
 				Intent intent=new Intent(MainActivity.this,ViewContact.class);
 				startActivity(intent);
 				

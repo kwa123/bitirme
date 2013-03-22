@@ -27,7 +27,7 @@ public class ViewContact extends Activity{
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.contact_view);
 	        newc=(Button)findViewById(R.id.newContact);
-	        home=(Button)findViewById(R.id.home);
+	        home=(Button)findViewById(R.id.drafts);
 	        
 	       
 	        ListView contactView=(ListView)findViewById(R.id.listContact);
@@ -57,6 +57,16 @@ public class ViewContact extends Activity{
 	        
 	        
 	    });
+	        
+	        home.setOnClickListener(new View.OnClickListener() {
+				
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent intent=new Intent(ViewContact.this,Drafts.class);
+					startActivity(intent);
+					
+				}
+			});
 	        
 	        ArrayList<String> arr=new ArrayList<String>();
 	        arr.add("hey");
