@@ -12,6 +12,8 @@ public class MainActivity extends Activity {
 	private Button save;
 	private EditText name;
 	private EditText number;
+	private Database database;
+	private Contact contact;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -21,10 +23,17 @@ public class MainActivity extends Activity {
         name=(EditText)findViewById(R.id.editText1);
         number=(EditText)findViewById(R.id.editText2);
         
+        database = new Database(this);
+        
         save.setOnClickListener(new View.OnClickListener() {
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+				
+				contact = new Contact(name.getText().toString(), number.getText().toString());
+				
+				database.insertContact(contact);
+				
 				Intent intent=new Intent(MainActivity.this,ViewContact.class);
 				startActivity(intent);
 				
