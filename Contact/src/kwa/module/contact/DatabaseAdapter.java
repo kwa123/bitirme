@@ -13,7 +13,7 @@ import android.util.Log;
 
 public class DatabaseAdapter {
 	private static String DATABASE_NAME = "database.db";
-	private static int DATABASE_VERSION = 2;
+	private static int DATABASE_VERSION = 3;
 	private static String DATABASE_TABLE = "contacts";
 	private static String KEY_ID="id";
 	private static String KEY_NAME="name";

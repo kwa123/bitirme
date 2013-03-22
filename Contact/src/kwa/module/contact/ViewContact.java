@@ -60,9 +60,19 @@ public class ViewContact extends Activity{
 	    });
 	        database = new Database(this);
 	        
-<<<<<<< HEAD
+
 	        ArrayList<String> arr = database.getAllContactNames();
-=======
+
+	        if(arr == null)
+	        {
+	        	arr = new ArrayList<String>();
+	        }
+	        
+	        ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
+       			 android.R.layout.simple_list_item_1, arr);
+   	        
+   	        contactView.setAdapter(aa);
+	        
 	        home.setOnClickListener(new View.OnClickListener() {
 				
 				public void onClick(View v) {
@@ -73,14 +83,8 @@ public class ViewContact extends Activity{
 				}
 			});
 	        
-	        ArrayList<String> arr=new ArrayList<String>();
-	        arr.add("hey");
-	        arr.add("123");
->>>>>>> ac030ba58b7eb124975612953981ddc6103b9181
-	        ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
-    			 android.R.layout.simple_list_item_1, arr);
-	        
-	        contactView.setAdapter(aa);
+
+	       
 	        
 	   }
 
