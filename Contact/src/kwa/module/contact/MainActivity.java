@@ -12,8 +12,13 @@ public class MainActivity extends Activity {
 	private Button save;
 	private EditText name;
 	private EditText number;
+<<<<<<< HEAD
 	private Database database;
 	private Contact contact;
+=======
+	private Contact contact;
+	
+>>>>>>> ac030ba58b7eb124975612953981ddc6103b9181
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,11 +34,16 @@ public class MainActivity extends Activity {
 			
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+<<<<<<< HEAD
 				
 				contact = new Contact(name.getText().toString(), number.getText().toString());
 				
 				database.insertContact(contact);
 				
+=======
+				contact = new Contact(name.getText().toString(), number.getText().toString());
+			
+>>>>>>> ac030ba58b7eb124975612953981ddc6103b9181
 				Intent intent=new Intent(MainActivity.this,ViewContact.class);
 				startActivity(intent);
 				

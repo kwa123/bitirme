@@ -28,7 +28,7 @@ public class ViewContact extends Activity{
 	        super.onCreate(savedInstanceState);
 	        setContentView(R.layout.contact_view);
 	        newc=(Button)findViewById(R.id.newContact);
-	        home=(Button)findViewById(R.id.home);
+	        home=(Button)findViewById(R.id.drafts);
 	        
 	       
 	        ListView contactView=(ListView)findViewById(R.id.listContact);
@@ -60,7 +60,23 @@ public class ViewContact extends Activity{
 	    });
 	        database = new Database(this);
 	        
+<<<<<<< HEAD
 	        ArrayList<String> arr = database.getAllContactNames();
+=======
+	        home.setOnClickListener(new View.OnClickListener() {
+				
+				public void onClick(View v) {
+					// TODO Auto-generated method stub
+					Intent intent=new Intent(ViewContact.this,Drafts.class);
+					startActivity(intent);
+					
+				}
+			});
+	        
+	        ArrayList<String> arr=new ArrayList<String>();
+	        arr.add("hey");
+	        arr.add("123");
+>>>>>>> ac030ba58b7eb124975612953981ddc6103b9181
 	        ArrayAdapter<String> aa = new ArrayAdapter<String>(this,
     			 android.R.layout.simple_list_item_1, arr);
 	        

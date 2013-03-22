@@ -21,6 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ViewContact" />
+        <activity android:name=".Drafts" />
+        <activity android:name=".DraftEdit" />
     </application>
     
 
