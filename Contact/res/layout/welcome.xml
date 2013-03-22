@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/contact"
+        android:layout_width="160dp"
+        android:layout_height="119dp"
+        android:layout_x="2dp"
+        android:layout_y="309dp"
+        android:text="CONTACTS" />
+
+    <Button
+        android:id="@+id/dra"
+        android:layout_width="160dp"
+        android:layout_height="119dp"
+        android:layout_x="158dp"
+        android:layout_y="309dp"
+        android:text="DRAFTS" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_x="0dp"
+        android:layout_y="12dp"
+        android:src="@drawable/resim" />
+
+</AbsoluteLayout>

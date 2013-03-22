@@ -1,5 +1,7 @@
 package kwa.module.contact;
 
+import java.util.ArrayList;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -11,7 +13,7 @@ import android.util.Log;
 
 public class DatabaseAdapter {
 	private static String DATABASE_NAME = "database.db";
-	private static int DATABASE_VERSION = 1;
+	private static int DATABASE_VERSION = 2;
 	private static String DATABASE_TABLE = "contacts";
 	private static String KEY_ID="id";
 	private static String KEY_NAME="name";
@@ -64,10 +66,13 @@ public class DatabaseAdapter {
 				+ keyId, null) > 0;
 	}
 	
+	/*
 	public Cursor getAllEntries () {
 		return db.query(DATABASE_TABLE, new String[] {KEY_ID, KEY_NAME},
 					KEY_TEL, null, null, null, null);
-	}	
+	}
+	*/
+	
 	public Contact getEntry(long rowIndex){
 		Cursor cursor = db.query(true, DATABASE_TABLE,
 				new String[] {KEY_ID, KEY_NAME, KEY_TEL},
@@ -134,5 +139,48 @@ public class DatabaseAdapter {
 			db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE);
 			onCreate(db);			
 		}		
+	}
+	
+	public ArrayList<Contact> getAllEntries(){
+		ArrayList<Contact> allContacts = new ArrayList<Contact>();
+		Cursor cursor1 = db.query(true, DATABASE_TABLE,new String[] { KEY_NAME, KEY_TEL},null, null, null, null, null, null);
+
+		
+		if((cursor1.getCount() == 0) || !cursor1.moveToFirst())
+			return null;
+		else
+		{
+			cursor1.moveToFirst();
+			do{
+				int i = cursor1.getInt(2);
+				if(cursor1.getInt(2) == -1)
+				{
+					Contact newContact = new Contact(cursor1.getString(0),cursor1.getString(1));
+					allContacts.add(newContact);
+				}
+			}while(cursor1.moveToNext());
+			
+			return allContacts;
+		}
+		
+	}
+	
+	public ArrayList<String> getAllEntryNames(){
+		ArrayList<String> allContacts = new ArrayList<String>();
+		Cursor cursor1 = db.query(true, DATABASE_TABLE,new String[] { KEY_NAME, KEY_TEL},null, null, null, null, null, null);
+
+		
+		if((cursor1.getCount() == 0) || !cursor1.moveToFirst())
+			return null;
+		else
+		{
+			cursor1.moveToFirst();
+			do{
+				allContacts.add(cursor1.getString(0));
+			}while(cursor1.moveToNext());
+			
+			return allContacts;
+		}
+		
 	}
 }
